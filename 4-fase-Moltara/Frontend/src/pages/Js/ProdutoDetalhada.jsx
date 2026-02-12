@@ -14,7 +14,6 @@ export default function ProdutoDetalhada() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [quantidade, SetQuantidade] = useState(1);
-  const [confirmarPersonalizacao, setConfirmarPersonalizacao] = useState(false);
 
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
@@ -166,6 +165,7 @@ export default function ProdutoDetalhada() {
   if (loading) return <div>Carregando...</div>;
   if (error) return <div>Erro: {error}</div>;
   if (!produto) return <div>Produto não encontrado.</div>;
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <div className="container-produto-detalhada">
@@ -195,74 +195,6 @@ export default function ProdutoDetalhada() {
         <div className="produto-info-section">
           <h1 className="produto-titulo">{produto.nome}</h1>
           <h2 className="produto-preco">R$ {produto.preco.toFixed(2).replace(".", ",")}</h2>
-
-          <p className="produto-subtitulo">Personalize seu produto:</p>
-
-          <div className="opcoes-personalizacao">
-            {/* Cores */}
-            <div className="grupo-personalizacao">
-              <span className="text-personalizacao">Cor: {personalizacaoSelecionada.cor || "Selecione"}</span>
-              <div className="checkbox-container">
-                {["Vermelho", "Azul", "Amarelo", "Verde"].map((cor) => (
-                  <button
-                    key={cor}
-                    className={`cor-button cor-${cor.toLowerCase()} ${personalizacaoSelecionada.cor === cor ? "selected" : ""}`}
-                    onClick={() => handlePersonalizacaoChange("cor", cor)}
-                    title={cor}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Tamanhos */}
-            <div className="grupo-personalizacao">
-              <span className="text-personalizacao">Tamanho: {personalizacaoSelecionada.tamanho || "Selecione"}</span>
-              <div className="checkbox-container">
-                {[
-                  { label: "P", value: "Pequeno" },
-                  { label: "M", value: "Médio" },
-                  { label: "G", value: "Grande" }
-                ].map((t) => (
-                  <button
-                    key={t.value}
-                    className={`tamanho-button ${personalizacaoSelecionada.tamanho === t.value ? "selected" : ""}`}
-                    onClick={() => handlePersonalizacaoChange("tamanho", t.value)}
-                  >
-                    {t.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Símbolos */}
-            <div className="grupo-personalizacao">
-              <span className="text-personalizacao">Símbolo: {personalizacaoSelecionada.simbolo || "Selecione"}</span>
-              <div className="checkbox-container">
-                {["Estrela", "Casa", "Circulo"].map((simbolo) => {
-                  const mapaIcones = {
-                    "Estrela": "Estrela",
-                    "Casa": "Casinha",
-                    "Circulo": "Circulo"
-                  };
-                  const key = mapaIcones[simbolo];
-                  const iconeObj = icones[key];
-
-                  return (
-                    <button
-                      key={simbolo}
-                      className={`simbolo-button ${personalizacaoSelecionada.simbolo === simbolo ? "selected" : ""}`}
-                      onClick={() => handlePersonalizacaoChange("simbolo", simbolo)}
-                    >
-                      <img
-                        src={personalizacaoSelecionada.simbolo === simbolo ? iconeObj.preenchido : iconeObj.contorno}
-                        alt={simbolo}
-                      />
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
 
           <div className="container-acoes">
             <div className="alinhamento-quantidade-produto">

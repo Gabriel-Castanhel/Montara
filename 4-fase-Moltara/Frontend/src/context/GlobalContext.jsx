@@ -37,7 +37,6 @@ export const GlobalContextProvider = ({ children }) => {
     fetchUser();
   }, []);
 
-  // Login usando sessões
   const login = async (email, senha) => {
     try {
       const response = await axios.post(

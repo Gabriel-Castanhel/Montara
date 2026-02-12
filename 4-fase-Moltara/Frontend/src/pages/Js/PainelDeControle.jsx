@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { BsArrowBarRight } from "react-icons/bs";
+import { BsPersonBadge } from "react-icons/bs";
+
 import "../Css/PainelDeControle.css";
 
 function PainelDeControle() {
@@ -16,14 +19,14 @@ function PainelDeControle() {
 
         <div className="card-adm">
           <Link to="/estoque" className="card-link">
-            <img src='/img/GestorEstoque.png' className="img-iconGestor" />
+            <BsPersonBadge />
             <span className="card-text">Gestão de Estoque</span>
           </Link>
         </div>
 
         <div className="card-adm">
           <Link to="/" className="card-link">
-            <img src='/img/Saida.png' className='img-iconSaida' />
+            <BsArrowBarRight />
             <span className="card-text">Sair do modo adm</span>
           </Link>
         </div>

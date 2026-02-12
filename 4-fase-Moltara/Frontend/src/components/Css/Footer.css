@@ -6,6 +6,7 @@
   flex-direction: column;
   gap: 40px;
   font-family: var(--font-secondary);
+  bottom: 0;
 }
 
 .footer-content {
