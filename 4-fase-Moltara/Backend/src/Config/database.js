@@ -2,8 +2,6 @@ import mongoose from 'mongoose';
 
 const uri = process.env.MONGODB_URI;
 
-console.log("URI lida no Docker:", uri);
-
 const connectDB = async () => {
   try {
     mongoose.connect(uri)

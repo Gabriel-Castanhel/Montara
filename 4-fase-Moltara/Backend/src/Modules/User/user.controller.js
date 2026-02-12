@@ -13,7 +13,7 @@ export const cadastrarUsuario = async (req, res) => {
       nome,
       cpf,
       email,
-      senha, // Store plain password; model will hash it
+      senha,
       role: "user",
     });
 

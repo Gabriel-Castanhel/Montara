@@ -8,7 +8,6 @@ import session from "express-session";
 import userRoutes from "./routes/user.routes.js";
 import productRoutes from "./routes/product.routes.js";
 import cartRoutes from "./routes/cart.routes.js";
-import orderRoutes from './routes/order.routes.js';
 import adminRoutes from "./routes/admin.routes.js";
 import commentRoutes from "./Modules/Comment/comment.routes.js";
 
@@ -44,6 +43,5 @@ app.use("/api/cart", cartRoutes);
 app.use("/api/usuario", userRoutes);
 app.use("/api/produto", productRoutes);
 app.use("/api/comentarios", commentRoutes);
-app.use("/api/pedidos", orderRoutes);
 
 export default app;
