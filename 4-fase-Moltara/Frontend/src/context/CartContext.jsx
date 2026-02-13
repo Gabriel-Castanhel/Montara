@@ -62,8 +62,6 @@ export function CartProvider({ children }) {
       const backendItems = response.data && response.data.items ? response.data.items : [];
       
       const mappedCart = backendItems.map(item => {
-        // item = { _id, produto: { ... }, quantidade }
-        // Se produto for null (deletado), tratar
         const prod = item.produto || {};
         return {
           ...prod,

@@ -19,14 +19,6 @@ export default function ProdutoDetalhada() {
   const [alertMessage, setAlertMessage] = useState('');
   const [alertType, setAlertType] = useState('');
 
-  const [personalizacaoSelecionada, setPersonalizacaoSelecionada] = useState({
-    cor: null,
-    tamanho: null,
-    simbolo: null,
-  });
-
-  const [simbolo, setSimbolo] = useState(null);
-
   // Comments State
   const [comentarios, setComentarios] = useState([]);
   const [novoComentario, setNovoComentario] = useState("");
@@ -104,53 +96,24 @@ export default function ProdutoDetalhada() {
   const handleAddToCart = async () => {
     if (!produto) return;
 
-    setShowAlert(false);
-
-    if (!personalizacaoSelecionada.cor || !personalizacaoSelecionada.tamanho || !personalizacaoSelecionada.simbolo) {
-      setAlertMessage('Por favor, selecione a Cor, o Tamanho e o Símbolo para personalizar seu produto.');
-      setAlertType('danger');
-      setShowAlert(true);
-      setTimeout(() => setShowAlert(false), 5000);
-      return; 
-    }
-
-    // Opcional: Esconder qualquer alerta anterior
-    setShowAlert(false);
-
-
     const success = await addToCart(
       produto._id, 
       quantidade, 
-      personalizacaoSelecionada 
     );
 
     if (success) {
       setAlertMessage(`O produto ${produto.nome} foi adicionado ao carrinho!`);
       setAlertType('success');
     } else {
-      setAlertMessage('Erro ao adicionar ao carrinho!');
+      setAlertMessage('Erro ao adicionar ao carrinho!' + err.message);
       setAlertType('danger');
     }
 
-    // 2. Mostrar o alerta após a lógica ser concluída
-    setShowAlert(true);
-
-    // Opcional: Esconder o alerta automaticamente após X segundos
-    setTimeout(() => {
-      setShowAlert(false);
-    }, 3000); // 3000 milissegundos = 3 segundos
   };
 
   const aumentar = () => SetQuantidade(quantidade + 1);
   const diminuir = () => {
     if (quantidade > 1) SetQuantidade(quantidade - 1);
-  };
-
-
-  const icones = {
-    Estrela: { contorno: "/img/estrela.png", preenchido: "/img/estrela_preenchida.png" },
-    Casinha: { contorno: "/img/casinha.png", preenchido: "/img/casinha_preenchida.png" },
-    Circulo: { contorno: "/img/circulo.png", preenchido: "/img/circulo_preenchido.png" },
   };
 
 
