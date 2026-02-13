@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import "../Css/Cadastro.css";
 import Navbar from "../../components/Js/Navbar.jsx";
@@ -115,12 +115,9 @@ export default function Cadastro() {
             <label htmlFor="termos" className="label-termos">
               <div>
                 Li e aceito os{" "}
-                <a
-                  rel="noopener"
-                  href="https://www.montara.com.br/termos-de-uso/"
-                >
+                <Link to={'/termos'}>
                   Termos de Uso
-                </a>
+                </Link>
               </div>
 
               <div className="renders-termos">

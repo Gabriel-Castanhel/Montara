@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Navbar from "../../components/Js/Navbar.jsx";
 import Footer from "../../components/Js/Footer.jsx";
 import { useGlobalContext } from "../../context/GlobalContext";
@@ -89,8 +90,11 @@ export default function Perfil() {
     return (
       <div className="perfil-container">
         <Navbar />
-        <div className="perfil-content-wrapper" style={{ display: 'flex', justifyContent: 'center', padding: '50px' }}>
+        <div className="perfil-content-login">
           <h2>Você não está logado.</h2>
+          <h1><Link to={'/'}>Voltar para a tela inicial</Link></h1>
+          <p>ou</p>
+          <h1><Link to={'/login'}>fazer login</Link></h1>
         </div>
       </div>
     )

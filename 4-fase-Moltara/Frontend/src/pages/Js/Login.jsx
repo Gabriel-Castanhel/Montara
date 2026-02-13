@@ -84,7 +84,7 @@ export default function Login() {
           {message && <p className="status-success">{message}</p>}
 
           <div className="links-adicionais">
-            <Link to="/cadastro">Não tem conta? Cadastre-se aqui</Link>
+            <p>Não tem conta?<Link to="/cadastro"> Cadastre-se aqui</Link></p>
           </div>
         </form>
       </div>

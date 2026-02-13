@@ -4,6 +4,18 @@
     margin-top: 90px;
 }
 
+.perfil-content-login {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h1 {
+        color: #d32f2f;
+    }
+}
+
 .perfil-content-wrapper {
     display: flex;
     max-width: 1200px;
@@ -13,13 +25,6 @@
     box-shadow: var(--card-shadow);
     overflow: hidden;
     min-height: 600px;
-}
-
-.perfil-content-wrapper h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
 }
 
 .perfil-sidebar {
