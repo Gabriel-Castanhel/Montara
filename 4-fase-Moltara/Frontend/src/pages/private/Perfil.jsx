@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Js/Navbar.jsx";
 import Footer from "../../components/Js/Footer.jsx";
-import { useGlobalContext } from "../../context/GlobalContext";
+import { useGlobalContext } from "../../context/GlobalContext.jsx";
 import axios from "axios";
 import {
   FaUserCircle,

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { IoSearchOutline } from "react-icons/io5";
 import { LuCircleUserRound } from "react-icons/lu";
@@ -7,11 +7,13 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import { useGlobalContext } from "../../context/GlobalContext";
 import { useCart } from "../../context/CartContext";
 import "../Css/Navbar.css";
+import SideCar from "./SideCar";
 
 export default function Navbar() {
   const navigate = useNavigate();
   const { user, setUser, isLoggedIn, setIsLoggedIn, logout } = useGlobalContext();
   const { cart, totalItems } = useCart();
+  const [sidebarAtivo, setSidebarAtivo] = useState(false);
   const isAdmin = user?.role === 'admin';
 
   useEffect(() => {
@@ -64,12 +66,12 @@ export default function Navbar() {
           </>
         )}
         <div className="cart-icon-container">
-          <Link to="/carrinho">
+          <button onClick={() => setSidebarAtivo()}>
             <HiShoppingCart color="#fff" size={20} />
-            <div className={`cart-count ${totalItems > 0 ? 'cart-count--active' : 'cart-count--empty'}`}>
+            <div className={`cart-count ${totalItems >= 0 ? 'cart-count--active' : 'cart-count--empty'}`}>
               {totalItems > 0 ? totalItems : ''}
             </div>
-          </Link>
+          </button>
         </div>
       </div>
     </nav>

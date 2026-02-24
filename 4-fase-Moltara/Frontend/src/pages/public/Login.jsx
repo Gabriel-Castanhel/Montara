@@ -7,7 +7,7 @@ import { FaEnvelope, FaLock } from "react-icons/fa";
 import axios from "axios";
 axios.defaults.withCredentials = true;
 
-import { useGlobalContext } from "../../context/GlobalContext";
+import { useGlobalContext } from "../../context/GlobalContext.jsx";
 
 export default function Login() {
   const { login } = useGlobalContext();

@@ -1,21 +1,21 @@
 import { createBrowserRouter } from "react-router-dom";
 
 // Imports de páginas de usuários
-import Home from "../pages/Js/Home.jsx";
-import Cadastro from "../pages/Js/Cadastro.jsx";
-import Login from "../pages/Js/Login.jsx";
-import Perfil from "../pages/Js/Perfil.jsx";
-import PaginaResultados from "../pages/Js/PaginaResultados.jsx";
-import Termos from "../pages/Js/Termos.jsx";
+import Home from "../pages/public/Home.jsx";
+import Cadastro from "../pages/public/Cadastro.jsx";
+import Login from "../pages/public/Login.jsx";
+import Perfil from "../pages/private/Perfil.jsx";
+import PaginaResultados from "../pages/public/PaginaResultados.jsx";
+import Termos from "../pages/public/Termos.jsx";
 
 // imports de páginas relacionadas com o carrinho
-import Carrinho from "../pages/Js/Carrinho.jsx";
-import ProdutoDetalhada from "../pages/Js/ProdutoDetalhada.jsx";
+import Carrinho from "../pages/private/Carrinho.jsx";
+import ProdutoDetalhada from "../pages/private/ProdutoDetalhada.jsx";
 
 // Imports de páginas de administrador
-import CriarProduto from "../pages/Js/CriarProduto.jsx";
-import EstoqueProduto from "../pages/Js/EstoqueProduto.jsx";
-import PainelDeControle from "../pages/Js/PainelDeControle.jsx";
+import CriarProduto from "../pages/private/CriarProduto.jsx";
+import EstoqueProduto from "../pages/private/EstoqueProduto.jsx";
+import PainelDeControle from "../pages/private/PainelDeControle.jsx";
 import ProtectedAdmin from "./ProtectedAdmin.jsx";
 
 const router = createBrowserRouter([
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
   { path: "/termos", element: <Termos /> },
 
   // Páginas do carrinho
-  { path: "/carrinho", element: <Carrinho /> },
+  { path: "/carrinho/:id", element: <Carrinho /> },
 
   // Páginas do produto
   { path: "/produtoDetalhada", element: <ProdutoDetalhada /> },
